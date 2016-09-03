@@ -1,0 +1,79 @@
+<!DOCTYPE>
+<html>
+<head>
+<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poiret+One" %>
+<%= stylesheet_link_tag "bootstrap/css/bootstrap.min" %>
+ 
+<style>
+
+*{
+	font-family: 'Poiret One';
+}
+body
+{
+	background-image: url('/assets/bg.jpg');
+	color: #fff;
+	
+	background-size: cover;
+}
+     td{padding:6px;}
+
+     
+	.bg_color
+	{
+		height: 1000px;
+		width: 100%;
+		background-color: rgba(11,124,135,0.6) !important;
+	}
+	.links
+	{
+		color: #fff !important;
+		font-size: 50px !important;
+		font-weight: 100 !important;
+		text-decoration: none !important;
+		background: none;
+	}
+</style>
+</head>
+<body>
+<div class="bg_color">
+<center>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			
+		</div>
+		<div class="col-md-2">
+			<h1 style="font-size:100px;font-weight:100;margin-top:50px;">FLISTER</h1>
+		</div>
+	</div>
+</div>
+
+
+<table border="0" style="margin-top:200px;">
+<tr>
+<% if user_signed_in? %>
+ <h2 class="links"> Logged in as <strong><%= current_user.email %></strong>.</h2>
+ <td><%= link_to 'Edit profile', edit_user_registration_path, :class => 'links' %></td><td class="links">|</td>
+ <td><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'links'  %></td><td class="links">|</td>
+ <td><%= link_to "Post", new_post_path, :class => 'links'  %></td>
+</tr>
+<tr>
+<% else %>
+ <td> <%= link_to "Sign up", new_user_registration_path, :class => 'links'  %></td>
+ <td class="links">|</td>
+ <td> <%= link_to "Login", new_user_session_path, :class => 'links'  %>
+
+ </td>
+
+<% end %>
+
+</tr>
+</table>
+</center>
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html>
+<head>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poiret+One" %>
+<%= stylesheet_link_tag "bootstrap/css/bootstrap.min" %>
+<style>
+     
+  *{
+  font-family: 'Poiret One';
+}
+body
+{
+  background-image: url('/assets/bg.jpg');
+  color: #fff;
+  
+  background-size: cover;
+}
+     td{padding:6px;}
+
+     
+  .bg_color
+  {
+    height: 1000px;
+    width: 100%;
+    background-color: rgba(11,124,135,0.6) !important;
+  }
+  .links
+  {
+    color: #fff !important;
+    font-size: 50px !important;
+    font-weight: 100 !important;
+    text-decoration: none !important;
+    background: none;
+  }
+  .black_clr
+  {
+    color: #000;
+  }
+ input[type=submit]
+  {
+    background: none !important;
+    border: 1px solid #fff !important;
+    padding: 5px !important;
+  }
+a
+{
+    background: none !important;
+    border: 1px solid #fff !important;
+    padding: 7px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    margin: 10px !important;
+  }
+ 
+
+</style>
+</head>
+<body>
+
+<center>
+
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table border="0" style="margin-top:200px;font-size:18px;">
+  <tr>
+  <div class="field">
+   <td> <%= f.label :attachment %></td>
+    <td class="black_clr" style="font-family:sans-serif;"><%= f.text_field :attachment %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+    <td><%= f.label :content %></td>
+    <td class="black_clr" style="font-family:sans-serif;"><%= f.text_area :content %></td>
+  </div>
+</tr>
+<tr>
+  <div class="field">
+    <td><%= f.label :user_id %></td>
+    <td class="black_clr" style="font-family:sans-serif;"><%= f.text_field :user_id %></td>
+  </div>
+</tr>
+<tr>
+  <td></td>
+  <div class="actions">
+   <td> <%= f.submit %></td>
+  </div>
+<% end %>
+</tr>
+</table>
+
+</center>
+</body>
+</html>

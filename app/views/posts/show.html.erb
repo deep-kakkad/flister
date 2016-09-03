@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<style>   
+td{padding:6px;}
+ .sbl
+   {
+    display:block;
+    border:1px solid #999999;
+    border-radius:5px;  
+
+   }
+   a:hover
+  {
+    padding:8px 8px 8px 8px;
+    border:solid;
+    background-color:gray;
+    border-right-color:gray;
+    border-bottom-color:gray;
+    border-left-color:black;
+    border-top-color:black;
+  }
+  
+</style>
+</head>
+<body>
+
+<center>
+<fieldset class="sbl">
+<p id="notice"><%= notice %></p>
+<table border="0">
+  <tr>
+<p>
+ <td> <strong>Attachment:</strong></td>
+  <td><%= @post.attachment %></td>
+</p>
+</tr>
+<tr>
+<p>
+  <td><strong>Content:</strong></td>
+  <td><%= @post.content %></td>
+</p>
+</tr>
+<tr>
+<p>
+ <td> <strong>User:</strong></td>
+  <td><%= @post.user %></td>
+</p>
+</tr>
+<tr>
+	<td></td>
+<td><a><%= link_to 'Edit', edit_post_path(@post) %></a></td>
+<td><a><%= link_to 'Back', posts_path %></a></td>
+</table>
+</fieldset>
+</center>
+</body>
+</html>

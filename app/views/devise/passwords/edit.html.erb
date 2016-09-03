@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+     td{padding:6px;}
+
+ .sbl
+   {
+    display:block;
+    border:1px solid #999999;
+    border-radius:5px;  
+   }
+  a:hover
+  {
+    padding:8px 8px 8px 8px;
+    border:solid;
+    background-color:gray;
+    border-right-color:gray;
+    border-bottom-color:gray;
+    border-left-color:black;
+    border-top-color:black;
+  }
+</style>
+</head>
+<body>
+
+<center>
+<fieldset class="sbl">
+<h2>Change your password</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+<table border="0">
+  <tr>
+  <div class="field">
+   <td> <%= f.label :password, "New password" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %></td>
+    <td><%= f.password_field :password, autofocus: true, autocomplete: "off" %></td>
+  </div>
+</tr>
+  <div class="field">
+    <td><%= f.label :password_confirmation, "Confirm new password" %></td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+  </div>
+</tr>
+<tr>
+  <div class="actions">
+  <td>  <%= f.submit "Change my password" %></td>
+  </div>
+  <td>
+<% end %>
+
+<a><%= render "devise/shared/links" %></a></td>
+</tr>
+</table> 
+</fieldset>
+</center>
+</body>
+</html>

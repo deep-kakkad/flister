@@ -1,0 +1,97 @@
+<!DOCTYPE>
+<html>
+<head>
+<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poiret+One" %>
+<%= stylesheet_link_tag "bootstrap/css/bootstrap.min" %>
+<style>
+     td{padding:6px;}
+
+ *{
+  font-family: 'Poiret One';
+}
+body
+{
+  background-image: url('/assets/bg.jpg');
+  color: #fff;
+  
+  background-size: cover;
+}
+     td{padding:6px;}
+
+     
+  .bg_color
+  {
+    height: 1000px;
+    width: 100%;
+    background-color: rgba(11,124,135,0.6) !important;
+  }
+  .links
+  {
+    color: #fff !important;
+    font-size: 50px !important;
+    font-weight: 100 !important;
+    text-decoration: none !important;
+    background: none;
+  }
+  .black_clr
+  {
+    color: #000;
+  }
+ input[type=submit]
+  {
+    background: none !important;
+    border: 1px solid #fff !important;
+    padding: 5px !important;
+  }
+a
+{
+    background: none !important;
+    border: 1px solid #fff !important;
+    padding: 7px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    margin: 10px !important;
+  }
+</style>
+</head>
+<body>
+<div class="bg_color">
+<center>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+    </div>
+    <div class="col-md-4">
+      <h3 style="font-size:70px;font-weight:100;margin-top:50px;">FORGOT YOUR PASSWORD?</h3>
+    </div>
+  </div>
+</div>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+<table border="0" style="margin-top:200px;font-size:18px;">
+  <tr>
+  <div class="field">
+    <td><%= f.label :email %></td>
+    <td class="black_clr" style="font-family:sans-serif;"><%= f.email_field :email, autofocus: true %></td>
+  </div>
+</tr>
+<tr>
+	<td></td>
+  <div class="actions">
+    <td><%= f.submit "Send me reset password instructions" %>&nbsp;&nbsp;<%= render "devise/shared/links" %></td>
+  </div>
+
+<% end %>
+</tr>
+
+
+</table> 
+
+</center>
+</div>
+</body>
+</html>

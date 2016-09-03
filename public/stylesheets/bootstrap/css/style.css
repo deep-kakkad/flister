@@ -1,0 +1,39 @@
+/* CSS Document */
+.s_btn
+	{
+		background:none;
+		border:0px solid #FFFFFF;
+		border-radius:5px;
+		height:70px;
+		color:#FFFFFF;
+		font-size:16px;	
+	}
+.login-header
+	{
+		background:#666666;
+		color:#FFFFFF;
+		padding:10px;
+		margin-bottom:0px !important;
+	}
+.sbl
+	{
+		display:block;
+		border:1px solid #999999;
+		border-radius:5px;	
+	}
+.sul
+	{list-style-type:none !important;
+	overflow:hidden !important;
+	padding:0 !important;
+	margin:0 !important;}
+.sli
+	{
+		float:left !important;
+		
+	}
+.ftr
+	{
+	padding:10px;
+		border:1px solid #000;
+		border-radius:5px;
+	}
