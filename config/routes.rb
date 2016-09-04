@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :friendships, only: [:index, :edit, :update] 
   get 'welcome/index'
 
   devise_for :users
@@ -9,9 +10,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   resources :users, only: [:index, :show, :edit, :update]
+  # resources :users
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  get 'friendships/send_friend_request' => 'friendships#send_friend_request', as: :send_friend_request
+  get '/user_listing' => 'welcome#user_listing'
+   get '/friend_list' => 'friendships#friend_list'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

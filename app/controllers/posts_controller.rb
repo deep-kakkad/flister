@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  # before login user cannot create the posts.
+  # before_action :authenticate_user!, :except => [:index]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if user_signed_in?
+      ids = current_user.friends.pluck(:id) << current_user.id
+      @posts = Post.where(user_id: ids)
+    end 
   end
 
   # GET /posts/1
@@ -24,7 +28,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -69,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:attachment, :content, :user_id)
+      params.require(:post).permit(:image, :content)
     end
 end
