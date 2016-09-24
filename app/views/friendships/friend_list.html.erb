@@ -1,40 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 <head>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poiret+One" %>
+<%= stylesheet_link_tag "bootstrap/css/bootstrap.min" %>
 <style>
      td{padding:6px;}
      th{padding:6px;}
 
- .sbl
-   {
-    display:block;
-    border:1px solid #999999;
-    border-radius:5px;  
-   }
-  a:hover
-  {
-    padding:8px 8px 8px 8px;
-    border:solid;
-    background-color:gray;
-    border-right-color:gray;
-    border-bottom-color:gray;
-    border-left-color:black;
-    border-top-color:black;
-  }
+  *{
+  font-family: 'Poiret One';
+}
 </style>
 </head>
 <body>
 
 <center>
-<fieldset class="sbl">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Friend</h1>
+<h1><B>Listing Friend</B></h1>
 <% if @friends.present? %>
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -42,18 +31,19 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <td align="center"><%= friend.email %></td>
+        <td align="center"><h3><B><%= friend.email %><h3></B></td>
+         <td align="center"><h3><B><%= image_tag friend.profile_image.url(:medium) %><h3></B></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% else %>
-  Currently you has no friend....
+  <p><B>Currently you have no friend....</B></p>
  <% end %> 
 <br>
 
-<a><%= link_to 'Back', root_path %></a>
-</fieldset>
+<%= link_to 'Back', root_path,  :class => 'btn btn-primary' %>
+
 </center>
 </body>
 </html>

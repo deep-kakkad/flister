@@ -8,19 +8,24 @@ td{padding:6px;}
     display:block;
     border:1px solid #999999;
     border-radius:5px;  
-
+    min-width:auto; 
    }
-   a:hover
+  .links
   {
-    padding:8px 8px 8px 8px;
-    border:solid;
-    background-color:gray;
-    border-right-color:gray;
-    border-bottom-color:gray;
-    border-left-color:black;
-    border-top-color:black;
+    color: black !important;
+    font-size: 30px !important;
+    font-weight: 100 !important;
+    text-decoration: none !important;
+    background: none;
   }
-  
+  a
+{
+    background: none !important;
+    border: 1px solid blue !important;
+    padding: 7px !important;
+    color: blue !important;
+    text-decoration: none !important;
+  }
 </style>
 </head>
 <body>
@@ -46,12 +51,12 @@ td{padding:6px;}
 <p>
  <td> <strong>User:</strong></td>
   <td><%= @post.user.email %></td>
-</p>
+</p><br>
 </tr>
-<tr>
-	<td></td>
-<td><a><%= link_to 'Edit', edit_post_path(@post) %></a></td>
-<td><a><%= link_to 'Back', posts_path %></a></td>
+<tr><br>
+	<td></td><br>
+<td><%= link_to 'Edit', edit_post_path(@post), :class => 'links' %></td>
+<td><%= link_to 'Feed', posts_path, :class => 'links' %></td>
 </table>
 </fieldset>
 </center>

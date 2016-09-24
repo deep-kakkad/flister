@@ -58,7 +58,10 @@ a
 <body>
 
 <center>
-
+<% if user_signed_in? %>
+  <%= image_tag current_user.profile_image.url(:medium) %>
+  <%= current_user.email %>
+<% end %>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -98,9 +101,9 @@ a
    <td> <%= f.submit %></td>
   </div>
 <% end %>
-</tr>
+</tr><br><br>
 </table>
-
+<br>
 </center>
 </body>
 </html>

@@ -1,41 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 <head>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poiret+One" %>
+<%= stylesheet_link_tag "bootstrap/css/bootstrap.min" %>
 <style>
-     td{padding:6px;}
-     th{padding:6px;}
+    td{padding:6px;}
+    th{padding:6px;}
+ *{
+  font-family: 'Poiret One';
+}
 
- .sbl
-   {
-    display:block;
-    border:1px solid #999999;
-    border-radius:5px;  
-   }
-  a:hover
-  {
-    padding:8px 8px 8px 8px;
-    border:solid;
-    background-color:gray;
-    border-right-color:gray;
-    border-bottom-color:gray;
-    border-left-color:black;
-    border-top-color:black;
-  }
+
+
+     
+  
+  
+
 </style>
 </head>
 <body>
 
 <center>
-<fieldset class="sbl">
-<p id="notice"><%= notice %></p>
 
-<h1>Listing User</h1>
 
-<table>
+<p id="notice"><B><%= notice %></B></p>
+
+<h1><B>Listing User</B></h1>
+
+<table border="0">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Action</th>
+     
+      <th align="center"><B>Email</B></th>
+      <th align="center">Profile Image</th>
+      <th align="center"><B>Action</B></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -43,17 +41,19 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td align="center"><%= user.email %></td>
-        <td align="center"><%= link_to "Add Friend", send_friend_request_path(:friend_id => user), :method => :post %>
+        <td align="center" style="font-size:20px;"><B><%= user.email %></B></td>
+        <td><%= image_tag user.profile_image.url(:medium) %></th></td>
+        <td align="center"><B><%= link_to "Add Friend", send_friend_request_path(:friend_id => user), :method => :post, :class => 'btn btn-primary' %></B>
 		</td>
       </tr>
     <% end %>
-    <td><a><%= link_to 'Back', root_path %></a></td>
+    <td align="center">&nbsp;&nbsp;&nbsp;<B><%= link_to 'Back', root_path, :class => 'btn btn-primary' %></B></td>
   </tbody>
 </table>
 
 <br>
-</fieldset>
+
 </center>
+
 </body>
 </html>
